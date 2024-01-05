@@ -4,7 +4,7 @@ import Link from "next/link"
 import React, { useEffect } from "react"
 import { useRouter } from "next/navigation"
 import axios from "axios"
-import toast from "react-hot-toast"
+import toast, { Toaster } from 'react-hot-toast';
 
 export default function SignupPage() {
     const router = useRouter()
@@ -52,7 +52,7 @@ export default function SignupPage() {
         <input className="p-2 border border-gray-300 rounded-lg mb-4 focus:outline-none focus:border-gray-600" id="email" type="text" value={user.email} onChange={(e) => setUser({ ...user, email: e.target.value })} placeholder="email" />
         <label htmlFor="email">password</label>
         <input className="p-2 border border-gray-300 rounded-lg mb-4 focus:outline-none focus:border-gray-600" id="password" type="password" value={user.password} onChange={(e) => setUser({ ...user, password: e.target.value })} placeholder="password" />
-        <button onClick={onSignup} className="p-2 border border-gray-300 rounded-lg mb-4 focus:outline-none focus:border-gray-600" type="button">{buttonDisabled ? "No signup" : "Signup"}</button>
+        <button onClick={onSignup} className="p-2 border border-gray-300 rounded-lg mb-4 focus:outline-none focus:border-gray-600" type="button" disabled={buttonDisabled}>{buttonDisabled ? "No signup" : "Signup"}</button>
         <Link href="/login">Visit login</Link>
     </div>)
 }
