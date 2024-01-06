@@ -29,7 +29,8 @@ export default function VerifyEmailPage() {
 
     useEffect(() => {
         const urlToken = window.location.search.split("=")[1];
-        setToken(urlToken || "");
+        const decodedToken = decodeURIComponent(urlToken);
+        setToken(decodedToken || "");
     }, []);
     return (
         <div className="flex flex-col items-center justify-center min-h-screen py-2">
