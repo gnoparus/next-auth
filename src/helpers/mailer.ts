@@ -3,7 +3,7 @@ import User from "@/models/userModel"
 
 import bcryptjs from "bcryptjs";
 
-export const sendEmail = async ({ email, emailType, userId }: any) => {
+const sendEmail = async ({ email, emailType, userId }: any) => {
     try {
         const hashedToken = await bcryptjs.hash(userId.toString(), 10)
 
@@ -42,5 +42,4 @@ export const sendEmail = async ({ email, emailType, userId }: any) => {
     }
 }
 
-
-
+export default sendEmail
